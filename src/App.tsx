@@ -74,7 +74,7 @@ function App () {
   }, [location.pathname])
 
   // close mobile menu on navigation
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [, setMobileOpen] = useState(false)
   useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
