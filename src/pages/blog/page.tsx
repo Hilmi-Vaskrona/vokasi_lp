@@ -126,7 +126,7 @@ export default function BlogPage() {
   const displayedPosts = filteredPosts.slice(start, end);
 
   return (
-    <main className="w-full px-6 lg:px-50 pt-20 pb-16 flex gap-10 bg-[#F7F7F7] min-h-screen ">
+    <main className="w-full px-4 md:px-6 lg:px-50 pt-28 lg:pt-32 pb-16 flex gap-10 bg-[#F7F7F7] min-h-screen">
 
       {/* LEFT CONTENT */}
       <div className="w-full lg:w-[70%] flex flex-col gap-10">

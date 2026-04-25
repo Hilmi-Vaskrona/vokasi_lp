@@ -18,6 +18,7 @@ import GalleryPage from './pages/gallery/page'
 import Unduhan from './pages/unduhan/page'
 import BlogDetailPage from './pages/blog/detail/detail'
 import Footer from './components/footer'
+import { Menu, X } from 'lucide-react'
 
 
 function App () {
@@ -74,7 +75,7 @@ function App () {
   }, [location.pathname])
 
   // close mobile menu on navigation
-  const [, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
@@ -94,16 +95,17 @@ function App () {
         <div
           className={`h-full transition-all flex justify-between items-center relative ${
             isScrolled
-              ? 'w-4/5 h-16 bg-white/50 top-4 rounded-2xl shadow-xl backdrop-blur-md'
+              ? 'w-[95%] md:w-4/5 h-16 bg-white/50 top-4 rounded-2xl shadow-xl backdrop-blur-md'
               : 'w-full bg-transparent top-0'
-          } px-6 py-4`}
+          } px-4 md:px-6 py-4`}
         >
-          <div className='w-1/3 h-full flex items-center gap-2'>
-            <img src='/assets/delta.png' alt='Delta Logo' className='w-12 h-12 object-contain' />
-            <span className='text-2xl font-bold text-gray-900'>Delta</span>
+          <div className='flex items-center gap-2'>
+            <img src='/assets/delta.png' alt='Delta Logo' className='w-10 h-10 md:w-12 md:h-12 object-contain' />
+            <span className='text-xl md:text-2xl font-bold text-gray-900'>Delta</span>
           </div>
 
-          <div className='w-2/3 flex items-center justify-end gap-6 relative'>
+          <div className='flex items-center justify-end relative'>
+            {/* Desktop Menu */}
             <div className='hidden md:flex items-center gap-8'>
               {menus.map((menu, index) => (
                 <Link
@@ -119,7 +121,37 @@ function App () {
                 </Link>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className='md:hidden p-2 text-gray-700 hover:text-blue-600 focus:outline-none'
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        <div 
+          className={`fixed top-[80px] left-0 w-full bg-white shadow-xl flex flex-col items-center gap-4 py-6 md:hidden transition-all duration-300 transform ${
+            mobileOpen ? 'translate-y-0 opacity-100 visible z-[998]' : '-translate-y-full opacity-0 invisible -z-10'
+          }`}
+        >
+          {menus.map((menu, index) => (
+            <Link
+              to={menuPaths[index]}
+              key={index}
+              onClick={() => setMobileOpen(false)}
+              className={`text-lg font-semibold w-full text-center py-2 transition-colors duration-200 ${
+                activeIndex === index
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+              }`}
+            >
+              {menu}
+            </Link>
+          ))}
         </div>
       </nav>
       <Routes>

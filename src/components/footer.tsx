@@ -1,6 +1,6 @@
 export default function Footer () {
   return (
-    <footer className='w-full bg-white border-t border-[#6f50f4]/20 mt-20 py-14 px-10'>
+    <footer className='w-full bg-white border-t border-[#6f50f4]/20 mt-20 py-10 md:py-14 px-6 md:px-10'>
       {/* Top Section */}
       <div className='w-full flex flex-col md:flex-row justify-between gap-10'>
         {/* Left Logo + Text */}
@@ -17,7 +17,7 @@ export default function Footer () {
         </div>
 
         {/* Useful Links */}
-        <div className='flex gap-16 w-2/3 md:justify-center'>
+        <div className='flex flex-col sm:flex-row gap-8 sm:gap-16 w-full md:w-2/3 md:justify-center mt-6 md:mt-0'>
           <div>
             <h3 className='font-semibold mb-3'>Menu Utama</h3>
             <ul className='space-y-2 text-gray-600'>
@@ -62,7 +62,7 @@ export default function Footer () {
       </div>
 
       {/* Bottom Section */}
-      <div className='w-full mt-14 bg-[#6f50f4]/10 rounded-full py-4 px-6 flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
+      <div className='w-full mt-10 md:mt-14 bg-[#6f50f4]/10 rounded-2xl md:rounded-full py-4 px-6 flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
         <p className='text-gray-600'>Copyright © 2025 delta-kv.com</p>
 
         {/* Social icons */}

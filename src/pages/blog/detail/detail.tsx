@@ -64,7 +64,7 @@ export default function BlogDetailPage() {
   }
 
   return (
-    <main className="w-full px-6 lg:px-30 pt-20 pb-16 flex gap-10 bg-white">
+    <main className="w-full px-4 md:px-6 lg:px-30 pt-28 md:pt-32 pb-16 flex gap-10 bg-white">
       {/* LEFT CONTENT */}
       <div className="w-full lg:w-[70%] flex flex-col gap-6">
         <Breadcrumb items={["Beranda", "Berita", post.title]} />

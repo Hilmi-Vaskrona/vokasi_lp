@@ -127,7 +127,7 @@ const Profile = () => {
   return (
     <div className="w-full min-h-screen bg-[#F7F7F7] flex flex-col items-center">
       {/* ===== Banner Section ===== */}
-      <div className="w-full h-[350px] relative overflow-hidden">
+      <div className="w-full h-[250px] md:h-[350px] mt-20 relative overflow-hidden">
         <img
           src="https://www.shutterstock.com/image-photo/indonesian-flag-on-independence-day-600nw-1457398277.jpg"
           alt="banner"

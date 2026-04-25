@@ -20,7 +20,7 @@ const Contact = () => {
 }, [])
 
   return (
-    <section className='w-full h-full flex flex-col gap-4'>
+    <section className='w-full h-full flex flex-col gap-4 pt-20 md:pt-24'>
       <section className="w-full h-[40vh] bg-[url('/background/bg-contact.jpg')] flex flex-col gap-4 justify-center items-center bg-bottom bg-no-repeat bg-cover">
         <h1 className=' md:text-6xl text-5xl text-center font-semibold text-slate-700' data-aos="fade-up">
           Kontak kami
@@ -66,7 +66,7 @@ const Contact = () => {
             </div>
 
             {/* Submit Button */}
-            <div className='w-[250px] h-[50px] bg-[#6f50f4] rounded-full flex items-center justify-center text-white font-semibold cursor-pointer'  data-aos="fade-up" data-aos-delay="800">
+            <div className='w-full md:w-[250px] h-[50px] bg-[#6f50f4] rounded-full flex items-center justify-center text-white font-semibold cursor-pointer transition-all hover:bg-[#5a3edc]'  data-aos="fade-up" data-aos-delay="800">
               Submit
             </div>
           </div>

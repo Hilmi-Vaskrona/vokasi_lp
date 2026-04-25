@@ -4,20 +4,20 @@ const Unduhan = () => {
     <div className="bg-[#F7F7F7] min-h-screen text-gray-800">
 
       {/* HERO SECTION */}
-      <section className="relative bg-[#1e3a8a] text-white py-20 px-4 text-center">
+      <section className="relative bg-[#1e3a8a] text-white pt-32 pb-20 px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-2xl md:text-3xl font-semibold mb-6">
             SELAMAT DATANG <br /> DI PERATURAN SMK VOKASI KOTA BOGOR
           </h1>
 
           {/* SEARCH BAR STYLE BLOG */}
-          <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-200 flex justify-between items-center max-w-2xl mx-auto">
+          <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-200 flex flex-col sm:flex-row gap-3 justify-between items-center max-w-2xl mx-auto">
             <input
               type="text"
               placeholder="Search"
               className="w-full px-4 py-2 rounded-xl text-gray-700 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-medium shadow-sm">
+            <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-medium shadow-sm">
               Search
             </button>
           </div>
@@ -29,7 +29,7 @@ const Unduhan = () => {
       </section>
 
       {/* KLASIFIKASI PERATURAN */}
-      <section className="max-w-6xl mx-auto mt-[-3rem] bg-white rounded-2xl shadow-sm border border-gray-200 p-6 relative z-10">
+      <section className="max-w-6xl mx-4 xl:mx-auto mt-[-3rem] bg-white rounded-2xl shadow-sm border border-gray-200 p-6 relative z-10">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-blue-600">Klasifikasi Peraturan</h2>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm shadow-sm">
@@ -59,7 +59,7 @@ const Unduhan = () => {
       </section>
 
       {/* PERATURAN BPK */}
-      <section className="max-w-6xl mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
         <div className="flex justify-between mb-4">
           <h2 className="text-xl font-bold text-blue-600">Peraturan BPK</h2>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm shadow-sm">
@@ -90,7 +90,7 @@ const Unduhan = () => {
       </section>
 
       {/* PERATURAN TERBARU */}
-      <section className="max-w-6xl mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 grid md:grid-cols-2 gap-8">
+      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 grid md:grid-cols-2 gap-8">
         <div>
           <h2 className="text-xl font-bold text-blue-600 mb-4">Peraturan Terbaru</h2>
           {Array(3)
@@ -137,7 +137,7 @@ const Unduhan = () => {
       </section>
 
       {/* STANDAR LAYANAN */}
-      <section className="max-w-6xl mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 grid md:grid-cols-2 gap-6">
+      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 grid md:grid-cols-2 gap-6">
         <div className="flex justify-center items-center">
           <img
             src="/logos/logo_delta.png"
@@ -163,7 +163,7 @@ const Unduhan = () => {
       </section>
 
       {/* VIDEO */}
-      <section className="max-w-6xl mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-10">
         <h2 className="text-xl font-bold text-blue-600 mb-6 text-center">
           VIDEO TUTORIAL
         </h2>

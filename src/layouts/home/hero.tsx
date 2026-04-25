@@ -79,7 +79,7 @@ const HeroLayout = () => {
         className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-400/20 rounded-full blur-[100px]" 
       />
       
-      <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full pt-20 md:pt-0">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-screen pt-28 md:pt-0 pb-12 md:pb-0">
         
         {/* === LEFT SIDE: Content === */}
         <motion.div 

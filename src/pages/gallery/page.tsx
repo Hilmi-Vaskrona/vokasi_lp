@@ -35,7 +35,7 @@ const GalleryPage = () => {
     : allImages.filter(img => img.category === activeCategory)
 
   return (
-    <main className="min-h-screen bg-[#fdfcfb] pt-20">
+    <main className="min-h-screen bg-[#fdfcfb] pt-28 md:pt-32">
       <section className="max-w-7xl mx-auto px-4 py-10">
         
         {/* Judul */}
