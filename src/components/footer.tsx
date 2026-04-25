@@ -1,6 +1,6 @@
 export default function Footer () {
   return (
-    <footer className='w-full bg-white border-t border-[#6f50f4]/20 mt-20 py-10 md:py-14 px-6 md:px-10'>
+    <footer className='w-full bg-white border-t border-blue-600/20 mt-20 py-10 md:py-14 px-6 md:px-10'>
       {/* Top Section */}
       <div className='w-full flex flex-col md:flex-row justify-between gap-10'>
         {/* Left Logo + Text */}
@@ -62,18 +62,18 @@ export default function Footer () {
       </div>
 
       {/* Bottom Section */}
-      <div className='w-full mt-10 md:mt-14 bg-[#6f50f4]/10 rounded-2xl md:rounded-full py-4 px-6 flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
+      <div className='w-full mt-10 md:mt-14 bg-blue-600/10 rounded-2xl md:rounded-full py-4 px-6 flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
         <p className='text-gray-600'>Copyright © 2025 delta-kv.com</p>
 
         {/* Social icons */}
         <div className='flex items-center gap-4'>
-          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-[#6f50f4] text-lg cursor-pointer'>
+          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-blue-600 text-lg cursor-pointer'>
             <img src='/icons/fb.png' alt='' />
           </div>
-          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-[#6f50f4] text-lg cursor-pointer'>
+          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-blue-600 text-lg cursor-pointer'>
             <img src='/icons/ig.png' alt='' />
           </div>
-          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-[#6f50f4] text-lg cursor-pointer'>
+          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-blue-600 text-lg cursor-pointer'>
             <img src='/icons/x.png' alt='' />
           </div>
         </div>
