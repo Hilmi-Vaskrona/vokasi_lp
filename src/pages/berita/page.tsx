@@ -36,15 +36,27 @@ const BeritaPage = () => {
 
   if (isLoading)
     return (
-      <main className="min-h-screen bg-[#F7F7F7] px-4 md:px-6 pt-28 md:pt-32 pb-10">
-        <div className="flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold mb-6 text-gray-900">
-          📰 Berita Terkini
-        </h1>
-        <NewsFilter category={category} setCategory={setCategory} />
-            
+      <main className="min-h-screen bg-[#F8FAFC] px-4 md:px-6 pt-28 md:pt-36 pb-16">
+        <div className="max-w-7xl mx-auto">
+          {/* Hero Heading */}
+          <div className="flex flex-col justify-center items-center mb-10 text-center">
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
+              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+              Live Update
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-3 leading-tight">
+              Berita{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#1E40AF]">
+                Terkini
+              </span>
+            </h1>
+            <p className="text-[#64748B] text-base md:text-lg font-medium mb-8">
+              Update informasi terbaru hari ini
+            </p>
+            <NewsFilter category={category} setCategory={setCategory} />
+          </div>
+          <NewsSkeleton />
         </div>
-        <NewsSkeleton />
       </main>
     );
 
@@ -56,20 +68,32 @@ const BeritaPage = () => {
     );
 
   return (
-    <main className="min-h-screen bg-[#F7F7F7] px-4 md:px-6 pt-28 md:pt-32 pb-10">
-      <div className="flex flex-col mt-10">
-        <div className="flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold mb-6 text-gray-900">
-          📰 Berita Terkini
-        </h1>
- 
-         <NewsFilter category={category} setCategory={setCategory} />
- 
-         </div>
- 
-         <section data-aos="fade-up">
-           <NewsGrid news={news || []} />
-         </section>
+    <main className="min-h-screen bg-[#F8FAFC] px-4 md:px-6 pt-28 md:pt-36 pb-16">
+      <div className="max-w-7xl mx-auto flex flex-col">
+
+        {/* Hero Heading */}
+        <div className="flex flex-col justify-center items-center mb-10 text-center">
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 tracking-wide uppercase">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
+            Live Update
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#0F172A] mb-3 leading-tight">
+            Berita{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#1E40AF]">
+              Terkini
+            </span>
+          </h1>
+          <p className="text-[#64748B] text-base md:text-lg font-medium mb-8">
+            Update informasi terbaru hari ini
+          </p>
+          <NewsFilter category={category} setCategory={setCategory} />
+        </div>
+
+        {/* News Grid */}
+        <section data-aos="fade-up">
+          <NewsGrid news={news || []} />
+        </section>
+
       </div>
     </main>
   );

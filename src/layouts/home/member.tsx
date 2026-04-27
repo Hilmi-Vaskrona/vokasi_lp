@@ -5,19 +5,19 @@ export default function MemberDelta () {
  const sekolah = [
   {
     nama: 'SMK Negeri 1 Bogor',
-    logo: 'https://smkmadinatulquran.sch.id/wp-content/uploads/2025/08/SMK-MQ-LOGO-Header.svg'
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8RgjanZB8qJe_m6F4oxQ95ucxXGl3RZvXAA&s'
   },
   {
     nama: 'SMK Negeri 2 Bogor',
-    logo: 'https://smkmadinatulquran.sch.id/wp-content/uploads/2025/08/SMK-MQ-LOGO-Header.svg'
+    logo: 'https://pbs.twimg.com/profile_images/1597686320/50257_112019792778_7466805_n_400x400.jpg'
   },
   {
     nama: 'SMK Wikrama Bogor',
-    logo: 'https://smkmadinatulquran.sch.id/wp-content/uploads/2025/08/SMK-MQ-LOGO-Header.svg'
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQL5SxZ8tquxXkpux6Wm4C3RyVvPbz6Q3RSw&s'
   },
   {
     nama: 'SMK PGRI 1 Bogor',
-    logo: 'https://smkmadinatulquran.sch.id/wp-content/uploads/2025/08/SMK-MQ-LOGO-Header.svg'
+    logo: 'https://yt3.googleusercontent.com/Dwgz-ZH29BUg63hY-Q14sCfrsE2p0J300gkaf_1Wg4KsBg0pOUzMrQ0Qa1Aoxm3POtGjg9s7YQ=s900-c-k-c0x00ffffff-no-rjw'
   },
   {
     nama: 'SMK Muhammadiyah 1 Bogor',

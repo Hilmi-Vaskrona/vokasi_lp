@@ -106,15 +106,15 @@ function App () {
 
           <div className='flex items-center justify-end relative'>
             {/* Desktop Menu */}
-            <div className='hidden md:flex items-center gap-8'>
+            <div className='hidden md:flex items-center gap-1'>
               {menus.map((menu, index) => (
                 <Link
                   to={menuPaths[index]}
                   key={index}
-                  className={`relative z-10 px-2 py-1 font-semibold transition-colors duration-200 ${
+                  className={`relative z-10 px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 ${
                     activeIndex === index
-                      ? 'text-blue-600'
-                      : 'text-gray-600 hover:text-blue-600'
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-200'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
                   }`}
                 >
                   {menu}
@@ -134,7 +134,7 @@ function App () {
 
         {/* Mobile Dropdown Menu */}
         <div 
-          className={`fixed top-[80px] left-0 w-full bg-white shadow-xl flex flex-col items-center gap-4 py-6 md:hidden transition-all duration-300 transform ${
+          className={`fixed top-[80px] left-0 w-full bg-white/95 backdrop-blur-md shadow-xl flex flex-col items-start gap-1 py-4 px-4 md:hidden transition-all duration-300 transform ${
             mobileOpen ? 'translate-y-0 opacity-100 visible z-[998]' : '-translate-y-full opacity-0 invisible -z-10'
           }`}
         >
@@ -143,9 +143,9 @@ function App () {
               to={menuPaths[index]}
               key={index}
               onClick={() => setMobileOpen(false)}
-              className={`text-lg font-semibold w-full text-center py-2 transition-colors duration-200 ${
+              className={`text-base font-semibold w-full text-left px-4 py-3 rounded-xl transition-all duration-200 ${
                 activeIndex === index
-                  ? 'text-blue-600 bg-blue-50'
+                  ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
                   : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
               }`}
             >
