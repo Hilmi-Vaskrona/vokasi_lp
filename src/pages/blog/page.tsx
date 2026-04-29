@@ -126,19 +126,48 @@ export default function BlogPage() {
   const displayedPosts = filteredPosts.slice(start, end);
 
   return (
-    <main className="w-full px-4 md:px-6 lg:px-50 pt-28 lg:pt-32 pb-16 flex gap-10 bg-[#F7F7F7] min-h-screen">
+    <main className="w-full px-4 md:px-8 lg:px-16 xl:px-24 pt-28 lg:pt-36 pb-20 flex gap-10 bg-[#F8FAFC] min-h-screen">
 
       {/* LEFT CONTENT */}
-      <div className="w-full lg:w-[70%] flex flex-col gap-10">
-        <Breadcrumb items={["Beranda", "Blog"]} />
-        <h1 className="text-3xl font-bold text-blue-600">Semua Blog</h1>
+      <div className="w-full lg:w-[65%] flex flex-col gap-8">
 
+        {/* Breadcrumb */}
+        <Breadcrumb items={["Beranda", "Blog"]} />
+
+        {/* Heading */}
+        <div className="flex flex-col gap-2">
+          <h1 className="text-4xl font-extrabold text-[#0F172A] leading-tight">
+            Semua{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#1D4ED8]">
+              Blog
+            </span>
+          </h1>
+          <div className="w-16 h-1 rounded-full bg-gradient-to-r from-[#2563EB] to-[#1D4ED8]" />
+          <p className="text-[#64748B] text-sm font-medium mt-1">
+            Artikel, berita, dan informasi terbaru dari dunia pendidikan
+          </p>
+        </div>
+
+        {/* Post List */}
         {loading ? (
-          <p className="text-blue-600">Loading artikel...</p>
+          <div className="flex flex-col gap-5">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="bg-white rounded-2xl p-4 flex gap-5 animate-pulse border border-[#E2E8F0]">
+                <div className="w-44 h-32 rounded-xl bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 flex-shrink-0" />
+                <div className="flex flex-col gap-3 flex-1 justify-center">
+                  <div className="h-4 bg-gray-200 rounded-full w-1/4" />
+                  <div className="h-5 bg-gray-200 rounded-full w-3/4" />
+                  <div className="h-5 bg-gray-200 rounded-full w-1/2" />
+                  <div className="h-3 bg-gray-100 rounded-full w-1/3" />
+                </div>
+              </div>
+            ))}
+          </div>
         ) : (
           <PostList posts={displayedPosts} />
         )}
 
+        {/* Pagination */}
         <Pagination
           currentPage={page}
           totalItems={filteredPosts.length}
@@ -148,10 +177,21 @@ export default function BlogPage() {
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <aside className="w-[34%] mt-30 p-[2%] h-[100%] rounded-2xl shadow bg-white hidden lg:flex flex-col gap-10">
-        <SearchBar onChange={setSearch} />
-        <SidebarKategori items={categories} />
-        <SidebarRecent items={allPosts.slice(0, 3)} />
+      <aside className="w-[35%] mt-28 hidden lg:flex flex-col gap-6 sticky top-32 self-start">
+        {/* Search */}
+        <div className="bg-white rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#E2E8F0] p-5">
+          <SearchBar onChange={setSearch} />
+        </div>
+
+        {/* Kategori */}
+        <div className="bg-white rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#E2E8F0] p-5">
+          <SidebarKategori items={categories} />
+        </div>
+
+        {/* Recent */}
+        <div className="bg-white rounded-2xl shadow-[0_2px_20px_rgba(0,0,0,0.06)] border border-[#E2E8F0] p-5">
+          <SidebarRecent items={allPosts.slice(0, 3)} />
+        </div>
       </aside>
 
     </main>

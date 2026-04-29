@@ -1,13 +1,21 @@
 const Breadcrumb = ({ items }: { items: string[] }) => {
   return (
-    <nav className="text-sm text-gray-500 mb-4 ">
-      <ol className="flex gap-1 ">
+    <nav className="text-xs text-[#64748B] mb-2">
+      <ol className="flex items-center gap-1 flex-wrap">
         {items.map((item, index) => (
-          <li key={index} className="flex items-center">
-            <span className={`${index !== items.length - 1 ? "text-blue-600" : "text-gray-800"}`}>
-              {item}
+          <li key={index} className="flex items-center gap-1">
+            <span
+              className={`font-medium transition-colors duration-200 ${
+                index !== items.length - 1
+                  ? "text-[#2563EB] hover:text-[#1D4ED8] cursor-pointer"
+                  : "text-[#0F172A] font-semibold"
+              }`}
+            >
+              {index === 0 ? "🏠 " : ""}{item}
             </span>
-            {index !== items.length - 1 && <span className="mx-1">/</span>}
+            {index !== items.length - 1 && (
+              <span className="text-[#CBD5E1] text-[10px] font-bold select-none">›</span>
+            )}
           </li>
         ))}
       </ol>
@@ -16,3 +24,4 @@ const Breadcrumb = ({ items }: { items: string[] }) => {
 };
 
 export default Breadcrumb;
+

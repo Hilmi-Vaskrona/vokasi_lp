@@ -1,182 +1,212 @@
-
 const Unduhan = () => {
-  return (
-    <div className="bg-[#F7F7F7] min-h-screen text-gray-800">
+  /* CARD UMUM (semua kotak isi) */
+  const cardClass =
+    "group border border-[#E2E8F0] rounded-2xl p-5 md:p-6 lg:p-7 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_28px_rgba(37,99,235,0.12)] hover:border-[#93C5FD] hover:-translate-y-1 transition-all duration-300 ease-out h-full w-full overflow-hidden";
 
-      {/* HERO SECTION */}
-      <section className="relative bg-[#1e3a8a] text-white pt-32 pb-20 px-4 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-2xl md:text-3xl font-semibold mb-6">
-            SELAMAT DATANG <br /> DI PERATURAN SMK VOKASI KOTA BOGOR
+  /* KOTAK BESAR SECTION */
+  const sectionClass =
+    "w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-10 bg-white rounded-3xl border border-[#E2E8F0] shadow-[0_4px_32px_rgba(0,0,0,0.07)] overflow-hidden";
+
+  return (
+    <div className="bg-[#F8FAFC] min-h-screen text-[#0F172A]">
+
+      {/* HERO */}
+      <section className="relative bg-gradient-to-br from-[#1D4ED8] via-[#1E40AF] to-[#1E3A8A] text-white pt-36 pb-24 md:pb-28 px-4 text-center overflow-hidden">
+        <div className="relative max-w-3xl mx-auto">
+          <h1 className="text-2xl md:text-4xl font-extrabold mb-3">
+            SELAMAT DATANG <br />
+            DI PERATURAN SMK VOKASI KOTA BOGOR
           </h1>
 
-          {/* SEARCH BAR STYLE BLOG */}
-          <div className="bg-white rounded-2xl p-3 shadow-sm border border-gray-200 flex flex-col sm:flex-row gap-3 justify-between items-center max-w-2xl mx-auto">
-            <input
-              type="text"
-              placeholder="Search"
-              className="w-full px-4 py-2 rounded-xl text-gray-700 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            />
-            <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-medium shadow-sm">
-              Search
-            </button>
-          </div>
-
-          <p className="mt-4 text-sm text-gray-200">
-            Peraturan terpopuler 2 minggu terakhir
+          <p className="text-white/70 mb-8">
+            Pusat dokumen dan peraturan resmi yang mudah diakses
           </p>
         </div>
       </section>
 
-      {/* KLASIFIKASI PERATURAN */}
-      <section className="max-w-6xl mx-4 xl:mx-auto mt-[-3rem] bg-white rounded-2xl shadow-sm border border-gray-200 p-6 relative z-10">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-blue-600">Klasifikasi Peraturan</h2>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm shadow-sm">
+      {/* KLASIFIKASI */}
+      <section className={`${sectionClass} mt-12 md:mt-14 p-6 md:p-10 lg:p-14`}>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+          <div>
+            <h2 className="text-2xl font-extrabold">Klasifikasi Peraturan</h2>
+            <div className="w-12 h-1 mt-1.5 rounded-full bg-[#2563EB]" />
+          </div>
+
+          <button className="bg-[#2563EB] text-white px-5 py-2.5 rounded-full text-sm font-bold">
             Lihat Statistik
           </button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {[
-            { title: "Peraturan BPK", desc: "Berisi kumpulan peraturan SMK se-Kota Bogor." },
-            { title: "Peraturan Kementerian/Lembaga", desc: "Berisi kumpulan peraturan dari Dinas Pendidikan, dll." },
-            { title: "Peraturan Pusat", desc: "Berisi kumpulan UU, PP, dan peraturan pusat lainnya." },
-            { title: "Peraturan Daerah", desc: "Berisi kumpulan peraturan daerah setempat seperti Perda dan Pergub." },
+            {
+              title: "Peraturan BPK",
+              desc: "Berisi kumpulan peraturan SMK se-Kota Bogor.",
+              icon: "📋",
+            },
+            {
+              title: "Peraturan Kementerian/Lembaga",
+              desc: "Berisi kumpulan peraturan dari Dinas Pendidikan, dll.",
+              icon: "🏛️",
+            },
+            {
+              title: "Peraturan Pusat",
+              desc: "Berisi kumpulan UU, PP, dan peraturan pusat lainnya.",
+              icon: "📜",
+            },
+            {
+              title: "Peraturan Daerah",
+              desc: "Berisi kumpulan peraturan daerah setempat seperti Perda dan Pergub.",
+              icon: "🗺️",
+            },
           ].map((item, i) => (
-            <div
-              key={i}
-              className="border border-gray-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition"
-            >
-              <h3 className="font-semibold text-black">{item.title}</h3>
-              <p className="text-sm mt-1 mb-3 text-gray-600">{item.desc}</p>
-              <button className="text-sm text-blue-600 hover:underline">
-                Lihat Peraturan
-              </button>
+            <div key={i} className={cardClass}>
+              <div className="flex items-start gap-4 w-full">
+                <span className="text-3xl shrink-0">{item.icon}</span>
+
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-extrabold text-base mb-2 break-words leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-[#64748B] mb-4 break-words leading-relaxed">
+                    {item.desc}
+                  </p>
+
+                  <button className="text-xs font-bold text-[#2563EB]">
+                    Lihat Peraturan →
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* PERATURAN BPK */}
-      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
-        <div className="flex justify-between mb-4">
-          <h2 className="text-xl font-bold text-blue-600">Peraturan BPK</h2>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm shadow-sm">
-            Lihat Lebih
-          </button>
-        </div>
+      <section className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}>
+        <h2 className="text-2xl font-extrabold mb-8">Peraturan BPK</h2>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array(4)
             .fill(0)
             .map((_, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-2xl p-4 bg-white shadow-sm hover:shadow-md transition"
-              >
-                <h3 className="font-semibold text-black">
+              <div key={i} className={cardClass}>
+                <p className="text-xs font-bold text-[#2563EB] mb-2">
+                  BPK • 2025
+                </p>
+
+                <h3 className="font-extrabold mb-2 break-words">
                   Peraturan No. {i + 1} Tahun 2025
                 </h3>
-                <p className="text-sm text-gray-600 mt-2">
+
+                <p className="text-sm text-[#64748B] break-words">
                   Tentang Penetapan dan Tata Kelola Sekolah Vokasi Kota Bogor
                 </p>
-                <p className="text-xs text-red-500 mt-2">
-                  Diundangkan {i + 2} bulan yang lalu
-                </p>
               </div>
             ))}
         </div>
       </section>
 
-      {/* PERATURAN TERBARU */}
-      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 className="text-xl font-bold text-blue-600 mb-4">Peraturan Terbaru</h2>
-          {Array(3)
-            .fill(0)
-            .map((_, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-2xl p-4 mb-3 bg-white shadow-sm hover:shadow-md transition"
-              >
-                <h3 className="font-semibold text-black">
-                  Permendik No. {i + 10} Tahun 2025
-                </h3>
-                <p className="text-sm mt-1 text-gray-700">
-                  Tentang Pembinaan dan Pengelolaan SMK se-Kota Bogor
-                </p>
-                <p className="text-xs text-red-500 mt-2">
-                  Diundangkan {i + 5} hari lalu
-                </p>
-              </div>
-            ))}
-        </div>
+      {/* TERBARU */}
+      <section className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <div>
-          <h2 className="text-xl font-bold text-blue-600 mb-4">Input Terbaru</h2>
-          {Array(3)
-            .fill(0)
-            .map((_, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 rounded-2xl p-4 mb-3 bg-white shadow-sm hover:shadow-md transition"
-              >
-                <h3 className="font-semibold text-black">
-                  Peraturan Daerah No. {i + 1} Tahun 2025
-                </h3>
-                <p className="text-sm mt-1 text-gray-700">
-                  Tentang Rencana Pengembangan Sekolah Vokasi dan Kurikulum
-                </p>
-                <p className="text-xs text-red-500 mt-2">
-                  Diinput {i + 1} jam lalu
-                </p>
-              </div>
-            ))}
-        </div>
-      </section>
+          {["Peraturan Terbaru", "Input Terbaru"].map((title, idx) => (
+            <div key={idx} className="w-full min-w-0">
+              <h2 className="text-xl font-extrabold mb-6">{title}</h2>
 
-      {/* STANDAR LAYANAN */}
-      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 grid md:grid-cols-2 gap-6">
-        <div className="flex justify-center items-center">
-          <img
-            src="/logos/logo_delta.png"
-            alt="Gedung BPK"
-            className="rounded-2xl  w-80 object-cover"
-          />
-        </div>
-        <div className="space-y-4">
-          {[
-            "Produk hukum yang diunggah berasal dari sumber resmi.",
-            "Semua dokumen diklasifikasikan berdasarkan jenis, tema, dan asal.",
-            "Dapat diakses publik tanpa syarat.",
-            "Saran & kritik bisa dikirim ke kontak resmi kami.",
-          ].map((text, i) => (
-            <div
-              key={i}
-              className="bg-gray-100 p-3 rounded-xl hover:bg-gray-50 border border-gray-200 transition"
-            >
-              <p className="text-gray-700">{text}</p>
+              <div className="space-y-4">
+                {Array(3)
+                  .fill(0)
+                  .map((_, i) => (
+                    <div key={i} className={cardClass}>
+                      <h3 className="font-bold text-sm mb-2 break-words">
+                        {idx === 0
+                          ? `Permendik No. ${i + 10} Tahun 2025`
+                          : `Peraturan Daerah No. ${i + 1} Tahun 2025`}
+                      </h3>
+
+                      <p className="text-sm text-[#64748B] break-words">
+                        Tentang Pengembangan Sekolah Vokasi
+                      </p>
+                    </div>
+                  ))}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
+      {/* STANDAR LAYANAN */}
+      <section
+        className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+          {/* Gambar kiri */}
+          <div className="flex justify-center items-center">
+            <img
+              src="/logos/logo_delta.png"
+              alt="logo"
+              className="rounded-2xl w-80 object-cover shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
+            />
+          </div>
+
+          {/* Content kanan */}
+          <div className="space-y-4 w-full min-w-0">
+            <div className="mb-2">
+              <h2 className="text-xl font-extrabold text-[#0F172A]">
+                Standar Layanan
+              </h2>
+
+              <div className="w-10 h-1 mt-1.5 rounded-full bg-gradient-to-r from-[#2563EB] to-[#1D4ED8]" />
+            </div>
+
+            {[
+              "Produk hukum yang diunggah berasal dari sumber resmi.",
+              "Semua dokumen diklasifikasikan berdasarkan jenis, tema, dan asal.",
+              "Dapat diakses publik tanpa syarat.",
+              "Saran & kritik bisa dikirim ke kontak resmi kami.",
+            ].map((text, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 bg-[#F8FAFC] p-4 md:p-5 rounded-xl border border-[#E2E8F0] hover:border-[#93C5FD] hover:bg-blue-50/50 transition-all duration-200 w-full overflow-hidden"
+              >
+                <span className="mt-0.5 text-[#2563EB] font-extrabold text-sm shrink-0">
+                  ✓
+                </span>
+
+                <p className="text-sm text-[#374151] leading-relaxed break-words">
+                  {text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* VIDEO */}
-      <section className="max-w-6xl mx-4 xl:mx-auto mt-8 bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-10">
-        <h2 className="text-xl font-bold text-blue-600 mb-6 text-center">
+      <section className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 mb-20 p-6 md:p-10 lg:p-14`}>
+        <h2 className="text-2xl font-extrabold text-center mb-8">
           VIDEO TUTORIAL
         </h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <p className="text-sm leading-relaxed text-gray-600">
-            Video tutorial penggunaan website ini membantu pengguna memahami
-            cara mencari dan mengakses peraturan SMK Kota Bogor.
-          </p>
-          <iframe
-            className="rounded-2xl w-full h-64"
-            src="https://www.youtube.com/embed/IFFOW8DlgTQ?si=DJueICSKZGI2N1rz"
-            allowFullScreen
-          ></iframe>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className={cardClass}>
+            <p className="text-sm text-[#64748B] break-words">
+              Video tutorial membantu pengguna memahami cara mencari dan
+              mengakses peraturan SMK Kota Bogor.
+            </p>
+          </div>
+
+          <div className="w-full overflow-hidden rounded-2xl">
+            <iframe
+              className="w-full h-64"
+              src="https://www.youtube.com/embed/IFFOW8DlgTQ"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
     </div>
