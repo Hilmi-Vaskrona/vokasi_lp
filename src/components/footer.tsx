@@ -1,6 +1,6 @@
 export default function Footer () {
   return (
-    <footer className='w-full bg-white border-t border-blue-600/20 mt-20 py-10 md:py-14 px-6 md:px-10'>
+    <footer className='w-full bg-white border-t border-blue-600/20 py-10 md:py-14 px-6 md:px-10'>
       {/* Top Section */}
       <div className='w-full flex flex-col md:flex-row justify-between gap-10'>
         {/* Left Logo + Text */}
