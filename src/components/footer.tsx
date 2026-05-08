@@ -1,83 +1,154 @@
-export default function Footer () {
+export default function Footer() {
   return (
-    <footer className='w-full bg-white border-t border-blue-600/20 py-10 md:py-14 px-6 md:px-10'>
-      {/* Top Section */}
-      <div className='w-full flex flex-col md:flex-row justify-between gap-10'>
-        {/* Left Logo + Text */}
-        <div className='md:w-1/3 w-full'>
-          <div className='flex items-center gap-3'>
-            <img src='/logos/logo_delta.png' alt='' className='w-10 h-10' />
-            <h2 className='text-xl font-semibold'>DeltaKv</h2>
+    <footer className="w-full bg-white border-t border-blue-600/10 relative overflow-hidden">
+
+      {/* Blur Decoration */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-16">
+
+        {/* TOP SECTION */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
+
+          {/* LOGO & DESC */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center shadow-sm">
+                <img
+                  src="/logos/logo_delta.png"
+                  alt="logo"
+                  className="w-9 h-9 object-contain"
+                />
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-extrabold text-[#0F172A]">
+                  DeltaKv
+                </h2>
+
+                <p className="text-sm text-blue-600 font-medium">
+                  Smart Digital Platform
+                </p>
+              </div>
+            </div>
+
+            <p className="text-gray-600 leading-relaxed max-w-md">
+              Streamline your business’s financial management with our
+              intuitive, scalable SaaS platform designed to help your business
+              grow faster and smarter.
+            </p>
+
+            {/* SOCIAL */}
+            <div className="flex items-center gap-4 mt-8">
+
+              <a
+                href="#"
+                className="group w-12 h-12 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+              >
+                <img
+                  src="/icons/fb.png"
+                  alt="facebook"
+                  className="w-5 h-5 object-contain"
+                />
+              </a>
+
+              <a
+                href="#"
+                className="group w-12 h-12 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+              >
+                <img
+                  src="/icons/ig.png"
+                  alt="instagram"
+                  className="w-5 h-5 object-contain"
+                />
+              </a>
+
+              <a
+                href="#"
+                className="group w-12 h-12 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
+              >
+                <img
+                  src="/icons/x.png"
+                  alt="twitter"
+                  className="w-5 h-5 object-contain"
+                />
+              </a>
+            </div>
           </div>
 
-          <p className='text-gray-600 mt-4'>
-            Streamline your business’s financial management with our intuitive,
-            scalable SaaS platform.
-          </p>
-        </div>
-
-        {/* Useful Links */}
-        <div className='flex flex-col sm:flex-row gap-8 sm:gap-16 w-full md:w-2/3 md:justify-center mt-6 md:mt-0'>
+          {/* MENU */}
           <div>
-            <h3 className='font-semibold mb-3'>Menu Utama</h3>
-            <ul className='space-y-2 text-gray-600'>
-              <li>
-                <a href='/' className='hover:text-gray-800'>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href='/profile' className='hover:text-gray-800'>
-                  Profile
-                </a>
-              </li>
-              <li>
-                <a href='/blog' className='hover:text-gray-800'>
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href='/berita' className='hover:text-gray-800'>
-                  Berita
-                </a>
-              </li>
-              <li>
-                <a href='/unduhan' className='hover:text-gray-800'>
-                  Unduhan
-                </a>
-              </li>
-              <li>
-                <a href='/gallery' className='hover:text-gray-800'>
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a href='/contact' className='hover:text-gray-800'>
-                  Contact
-                </a>
-              </li>
+            <h3 className="text-lg font-bold text-[#0F172A] mb-5">
+              Menu Utama
+            </h3>
+
+            <ul className="space-y-3">
+              {[
+                ["Home", "/"],
+                ["Profile", "/profile"],
+                ["Blog", "/blog"],
+                ["Berita", "/berita"],
+              ].map(([name, link], i) => (
+                <li key={i}>
+                  <a
+                    href={link}
+                    className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* MENU 2 */}
+          <div>
+            <h3 className="text-lg font-bold text-[#0F172A] mb-5">
+              Informasi
+            </h3>
+
+            <ul className="space-y-3">
+              {[
+                ["Unduhan", "/unduhan"],
+                ["Gallery", "/gallery"],
+                ["Contact", "/contact"],
+              ].map(([name, link], i) => (
+                <li key={i}>
+                  <a
+                    href={link}
+                    className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Section */}
-      <div className='w-full mt-10 md:mt-14 bg-blue-600/10 rounded-2xl md:rounded-full py-4 px-6 flex flex-col-reverse md:flex-row justify-between items-center gap-6'>
-        <p className='text-gray-600'>Copyright © 2025 delta-kv.com</p>
+        {/* LINE */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent my-10" />
 
-        {/* Social icons */}
-        <div className='flex items-center gap-4'>
-          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-blue-600 text-lg cursor-pointer'>
-            <img src='/icons/fb.png' alt='' />
-          </div>
-          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-blue-600 text-lg cursor-pointer'>
-            <img src='/icons/ig.png' alt='' />
-          </div>
-          <div className='w-10 h-10 rounded-full bg-white border flex items-center justify-center text-blue-600 text-lg cursor-pointer'>
-            <img src='/icons/x.png' alt='' />
+        {/* BOTTOM */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+
+          <p className="text-gray-500 text-sm text-center md:text-left">
+            Copyright © 2025 DeltaKv. All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-3 text-sm text-gray-500">
+            <span className="hover:text-blue-600 cursor-pointer transition-colors">
+              Privacy Policy
+            </span>
+
+            <div className="w-1 h-1 rounded-full bg-gray-300" />
+
+            <span className="hover:text-blue-600 cursor-pointer transition-colors">
+              Terms of Service
+            </span>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

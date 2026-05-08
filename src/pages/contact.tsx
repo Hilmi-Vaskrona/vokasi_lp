@@ -1,161 +1,261 @@
 // import { motion } from "framer-motion";
 
-import { Mails, MapPinHouse, PhoneCall } from 'lucide-react'
-import { useEffect } from 'react'
-import * as Aos from 'aos'
+import { Mails, MapPinHouse, PhoneCall } from "lucide-react";
+import { useEffect } from "react";
+import * as Aos from "aos";
 
 const Contact = () => {
   useEffect(() => {
-  Aos.init({
-    duration: 600,
-    easing: 'ease-out',
-    once: true,
-    mirror: false
-  })
+    Aos.init({
+      duration: 600,
+      easing: "ease-out",
+      once: true,
+      mirror: false,
+    });
 
-  // FIX reload
-  setTimeout(() => {
-    Aos.refreshHard()
-  }, 300)
-}, [])
+    setTimeout(() => {
+      Aos.refreshHard();
+    }, 300);
+  }, []);
 
   return (
-    <section className='w-full h-full flex flex-col gap-4 pt-20 md:pt-24 bg-white'>
-      <section className="w-full h-[40vh] bg-[url('/background/bg-contact.jpg')] flex flex-col gap-4 justify-center items-center bg-bottom bg-no-repeat bg-cover">
-        <h1 className=' md:text-6xl text-5xl text-center font-semibold text-slate-700' data-aos="fade-up">
-          Kontak kami
-        </h1>
+    <section className="w-full h-full flex flex-col bg-white overflow-hidden">
+      {/* HERO */}
+      <section className="relative w-full h-[45vh] bg-[url('/background/bg-contact.jpg')] bg-cover bg-center flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        <div className="relative z-10 flex flex-col items-center gap-4 px-6">
+          <span
+            className="px-5 py-2 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white text-sm tracking-wide"
+            data-aos="fade-up"
+          >
+            Hubungi Kami
+          </span>
+
+          <h1
+            className="md:text-7xl text-5xl text-center font-bold text-white leading-tight"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Kontak Kami
+          </h1>
+
+          <p
+            className="max-w-2xl text-center text-white/80 text-sm md:text-base"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            Kami siap membantu dan menjawab semua pertanyaan Anda dengan cepat
+            dan profesional.
+          </p>
+        </div>
       </section>
-      <section className='w-full h-full'>
-        <div className='w-full md:h-[81vh] h-full md:px-16 px-6 py-12  flex flex-col-reverse md:flex-row gap-12'>
-          <div className='md:w-2/3 w-full flex flex-col gap-6'>
-            {/* First / Last Name */}
-            <div className='w-full flex flex-col md:flex-row gap-6'>
-              <div className='md:w-1/2 w-full h-[75px] bg-white border border-gray-200 shadow-sm rounded-full flex items-center px-6' data-aos="fade-up">
-                <input
-                  type='text'
-                  placeholder='Nama Depan'
-                  className='w-full text-lg text-blue-600 placeholder:text-blue-400 bg-transparent outline-none'
-                />
-              </div>
 
-              <div className='md:w-1/2 w-full h-[75px] bg-white border border-gray-200 shadow-sm rounded-full flex items-center px-6' data-aos="fade-up" data-aos-delay="200">
-                <input
-                  type='text'
-                  placeholder='Nama Belakang'
-                  className='w-full text-lg text-blue-600 placeholder:text-blue-400 bg-transparent outline-none'
-                />
-              </div>
-            </div>
+      {/* CONTACT FORM */}
+      <section className="w-full relative mt-20 z-20">
+        <div className="w-full max-w-7xl mx-auto md:px-16 px-6">
+          <div className="w-full h-full flex flex-col-reverse lg:flex-row gap-8">
+            {/* FORM */}
+            <div
+              className="lg:w-2/3 w-full bg-white border border-gray-100 rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.06)] p-6 md:p-10 flex flex-col gap-6"
+              data-aos="fade-up"
+            >
+              <div className="flex flex-col gap-2">
+                <h2 className="text-3xl font-bold text-slate-700">
+                  Kirim Pesan
+                </h2>
 
-            {/* Email */}
-            <div className='w-full h-[75px] bg-white border border-gray-200 shadow-sm rounded-full flex items-center px-6' data-aos="fade-up" data-aos-delay="400">
-              <input
-                type='text'
-                placeholder='Email'
-                className='w-full text-lg text-blue-600 placeholder:text-blue-400 bg-transparent outline-none'
-              />
-            </div>
-
-            {/* Message / Textarea */}
-            <div className='w-full h-[250px] bg-white border border-gray-200 shadow-sm rounded-3xl px-6 py-4' data-aos="fade-up" data-aos-delay="600">
-              <textarea
-                placeholder='Message'
-                className='w-full h-full text-lg text-blue-600 placeholder:text-blue-400 bg-transparent outline-none resize-none'
-              ></textarea>
-            </div>
-
-            {/* Submit Button */}
-            <div className='w-full md:w-[250px] h-[50px] bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold cursor-pointer transition-all hover:bg-blue-700'  data-aos="fade-up" data-aos-delay="800">
-              Submit
-            </div>
-          </div>
-
-          <div className="md:w-1/3 w-full bg-white border border-gray-200 shadow-sm rounded-3xl h-full overflow-hidden" data-aos="fade-up" >
-            <div className='w-full h-full flex flex-col gap-6 px-6 pb-6 pt-12 justify-between'>
-              <div className='flex flex-col gap-6'>
-                <h3 className='text-blue-600 font-semibold text-4xl'data-aos="fade-up" data-aos-delay="200">
-                  Ayo Bergabung Dengan Kami
-                </h3>
-                <p className='text-sm text-gray-600'data-aos="fade-up" data-aos-delay="400">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                  recusandae tempora mollitia laboriosam dolorum ex, laborum
-                  officiis quasi, voluptatibus rerum accusamus doloribus vitae
-                  nemo non nisi in asperiores. Laborum, saepe.
+                <p className="text-gray-500 text-sm">
+                  Isi form berikut dan tim kami akan segera menghubungi Anda.
                 </p>
               </div>
-              <button className='w-full h-[55px] rounded-full bg-blue-600 text-white capitalize hover:bg-blue-700 transition-all' data-aos="fade-up" data-aos-delay="600">
-                Gabung Sekarang
+
+              {/* NAME */}
+              <div className="w-full flex flex-col md:flex-row gap-5">
+                <div
+                  className="md:w-1/2 w-full h-[70px] rounded-2xl border border-gray-200 bg-gray-50/70 px-6 flex items-center transition-all focus-within:border-blue-500 focus-within:bg-white"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  <input
+                    type="text"
+                    placeholder="Nama Depan"
+                    className="w-full bg-transparent outline-none text-slate-700 placeholder:text-slate-400"
+                  />
+                </div>
+
+                <div
+                  className="md:w-1/2 w-full h-[70px] rounded-2xl border border-gray-200 bg-gray-50/70 px-6 flex items-center transition-all focus-within:border-blue-500 focus-within:bg-white"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  <input
+                    type="text"
+                    placeholder="Nama Belakang"
+                    className="w-full bg-transparent outline-none text-slate-700 placeholder:text-slate-400"
+                  />
+                </div>
+              </div>
+
+              {/* EMAIL */}
+              <div
+                className="w-full h-[70px] rounded-2xl border border-gray-200 bg-gray-50/70 px-6 flex items-center transition-all focus-within:border-blue-500 focus-within:bg-white"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <input
+                  type="email"
+                  placeholder="Alamat Email"
+                  className="w-full bg-transparent outline-none text-slate-700 placeholder:text-slate-400"
+                />
+              </div>
+
+              {/* MESSAGE */}
+              <div
+                className="w-full h-[220px] rounded-3xl border border-gray-200 bg-gray-50/70 px-6 py-5 transition-all focus-within:border-blue-500 focus-within:bg-white"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <textarea
+                  placeholder="Tulis pesan Anda..."
+                  className="w-full h-full bg-transparent outline-none resize-none text-slate-700 placeholder:text-slate-400"
+                ></textarea>
+              </div>
+
+              {/* BUTTON */}
+              <button
+                className="md:w-[220px] w-full h-[58px] rounded-2xl bg-blue-600 text-white font-semibold tracking-wide hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-blue-200"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                Kirim Pesan
               </button>
             </div>
-          </div>
-        </div>
-        <div className='w-full md:h-[40vh] h-full   md:px-16 px-6 py-4 mt-12 flex flex-col md:flex-row gap-8'>
-          <div className='md:w-1/3 w-full h-full bg-white shadow-sm border border-gray-100 rounded-3xl flex flex-col gap-4 px-6 py-12'data-aos="fade-up">
-            <div className='w-full flex gap-4 items-center' data-aos="fade-up" data-aos-delay="200">
-              {/* <Smartphone size={40} className="text-white" /> */}
-              <PhoneCall size={40} className='text-blue-600' />
 
-              <h4 className='text-xl text-blue-600 font-semibold'>
+            {/* SIDE CARD */}
+            <div
+              className="lg:w-1/3 w-full bg-gradient-to-b from-white to-blue-50 border border-gray-100 rounded-[32px] shadow-[0_10px_40px_rgba(0,0,0,0.06)] overflow-hidden"
+              data-aos="fade-up"
+            >
+              <div className="w-full h-full flex flex-col justify-between gap-10 p-8 md:p-10">
+                <div className="flex flex-col gap-6">
+                  <div className="w-[70px] h-[70px] rounded-2xl bg-blue-100 flex items-center justify-center">
+                    <PhoneCall className="text-blue-600" size={30} />
+                  </div>
+
+                  <div className="flex flex-col gap-4">
+                    <h3 className="text-4xl font-bold text-slate-700 leading-tight">
+                      Ayo Bergabung Bersama Kami
+                    </h3>
+
+                    <p className="text-gray-600 leading-relaxed">
+                      Kami membuka peluang untuk Anda yang ingin berkembang dan
+                      menjadi bagian dari komunitas yang inovatif serta
+                      profesional.
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  className="w-full h-[58px] rounded-2xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  Gabung Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* INFO CARDS */}
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {/* PHONE */}
+            <div
+              className="group bg-white border border-gray-100 rounded-[28px] p-8 shadow-[0_6px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300"
+              data-aos="fade-up"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-all">
+                <PhoneCall size={28} className="text-blue-600" />
+              </div>
+
+              <h4 className="text-2xl font-bold text-slate-700 mb-3">
+                Telepon
+              </h4>
+
+              <p className="text-blue-600 font-semibold mb-4">
                 +62 812-9342-3248
-              </h4>
-            </div>
-            <p className='text-gray-600' data-aos="fade-up" data-aos-delay="400">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-              nesciunt consequatur possimus assumenda molestiae, illo, fuga
-              reiciendis vel asperiores repellendus omnis dicta minima maiores
-              aliquam, non eius laborum eos ex!
-            </p>
-          </div>
-          <div className='md:w-1/3 w-full  h-full bg-white shadow-sm border border-gray-100 rounded-3xl flex flex-col gap-4 px-6 py-12' data-aos="fade-up" data-aos-delay="200">
-            <div className='w-full flex gap-4 items-center' data-aos="fade-up" data-aos-delay="400">
-              {/* <Smartphone size={40} className="text-white" /> */}
-              <Mails size={40} className='text-blue-600' />
+              </p>
 
-              <h4 className='text-xl text-blue-600 font-semibold'>
+              <p className="text-gray-500 leading-relaxed">
+                Hubungi kami kapan saja untuk mendapatkan informasi lebih lanjut
+                mengenai layanan kami.
+              </p>
+            </div>
+
+            {/* EMAIL */}
+            <div
+              className="group bg-white border border-gray-100 rounded-[28px] p-8 shadow-[0_6px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-all">
+                <Mails size={28} className="text-blue-600" />
+              </div>
+
+              <h4 className="text-2xl font-bold text-slate-700 mb-3">
+                Email
+              </h4>
+
+              <p className="text-blue-600 font-semibold mb-4">
                 DeltaKv@delta-kv.com
-              </h4>
-            </div>
-            <p className='text-gray-600' data-aos="fade-up" data-aos-delay="600">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-              nesciunt consequatur possimus assumenda molestiae, illo, fuga
-              reiciendis vel asperiores repellendus omnis dicta minima maiores
-              aliquam, non eius laborum eos ex!
-            </p>
-          </div>
-          <div className='md:w-1/3 w-full h-full bg-white shadow-sm border border-gray-100 rounded-3xl flex flex-col gap-4 px-6 py-12' data-aos="fade-up" data-aos-delay="400">
-            <div className='w-full flex gap-4 items-center' data-aos="fade-up" data-aos-delay="600">
-              {/* <Smartphone size={40} className="text-white" /> */}
-              {/* <Mails  /> */}
-              <MapPinHouse size={40} className='text-blue-600' />
+              </p>
 
-              <h4 className='text-xl text-blue-600 font-semibold'>
-                Jonggol, bogor
-              </h4>
+              <p className="text-gray-500 leading-relaxed">
+                Kirim pesan melalui email dan tim kami akan merespons dengan
+                cepat dan ramah.
+              </p>
             </div>
-            <p className='text-gray-600' data-aos="fade-up" data-aos-delay="800">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
-              nesciunt consequatur possimus assumenda molestiae, illo, fuga
-              reiciendis vel asperiores repellendus omnis dicta minima maiores
-              aliquam, non eius laborum eos ex!
-            </p>
+
+            {/* ADDRESS */}
+            <div
+              className="group bg-white border border-gray-100 rounded-[28px] p-8 shadow-[0_6px_30px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-all">
+                <MapPinHouse size={28} className="text-blue-600" />
+              </div>
+
+              <h4 className="text-2xl font-bold text-slate-700 mb-3">
+                Lokasi
+              </h4>
+
+              <p className="text-blue-600 font-semibold mb-4">
+                Jonggol, Bogor
+              </p>
+
+              <p className="text-gray-500 leading-relaxed">
+                Datang langsung ke lokasi kami untuk konsultasi dan kerja sama
+                lebih lanjut.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className='w-full h-[60vh] rounded-4xl overflow-hidden  md:px-16 px-6 py-4 mt-6' data-aos="fade-up">
-          <iframe
-            src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63429.320564851696!2d107.00274204916234!3d-6.47950050421234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69bc0d7468736b%3A0x401576d14fed560!2sJonggol%2C%20Kec.%20Jonggol%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1764084071528!5m2!1sid!2sid'
-            width='600'
-            height='450'
-            loading='lazy'
-            className='w-full h-full'
-          ></iframe>
+
+          {/* MAP */}
+          <div
+            className="w-full h-[65vh] rounded-[36px] overflow-hidden border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.06)] mt-12 mb-16"
+            data-aos="fade-up"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63429.320564851696!2d107.00274204916234!3d-6.47950050421234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69bc0d7468736b%3A0x401576d14fed560!2sJonggol%2C%20Kec.%20Jonggol%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1764084071528!5m2!1sid!2sid"
+              loading="lazy"
+              className="w-full h-full"
+            ></iframe>
+          </div>
         </div>
       </section>
-
     </section>
-  )
-}
+  );
+};
 
-export default Contact
-
-
+export default Contact;

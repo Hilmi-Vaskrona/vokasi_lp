@@ -8,7 +8,7 @@ const Unduhan = () => {
     "w-full max-w-[1280px] mx-auto px-6 md:px-8 lg:px-10 bg-white rounded-3xl border border-[#E2E8F0] shadow-[0_4px_32px_rgba(0,0,0,0.07)] overflow-hidden";
 
   return (
-    <div className="bg-[#F8FAFC] min-h-screen text-[#0F172A]">
+    <div className="bg-[#F8FAFC] min-h-screen text-[#0F172A] pb-20">
 
       {/* HERO */}
       <section className="relative bg-gradient-to-br from-[#1D4ED8] via-[#1E40AF] to-[#1E3A8A] text-white pt-36 pb-24 md:pb-28 px-4 text-center overflow-hidden">
@@ -28,7 +28,10 @@ const Unduhan = () => {
       <section className={`${sectionClass} mt-12 md:mt-14 p-6 md:p-10 lg:p-14`}>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <div>
-            <h2 className="text-2xl font-extrabold">Klasifikasi Peraturan</h2>
+            <h2 className="text-2xl font-extrabold">
+              Klasifikasi Peraturan
+            </h2>
+
             <div className="w-12 h-1 mt-1.5 rounded-full bg-[#2563EB]" />
           </div>
 
@@ -84,8 +87,12 @@ const Unduhan = () => {
       </section>
 
       {/* PERATURAN BPK */}
-      <section className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}>
-        <h2 className="text-2xl font-extrabold mb-8">Peraturan BPK</h2>
+      <section
+        className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}
+      >
+        <h2 className="text-2xl font-extrabold mb-8">
+          Peraturan BPK
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array(4)
@@ -109,12 +116,16 @@ const Unduhan = () => {
       </section>
 
       {/* TERBARU */}
-      <section className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}>
+      <section
+        className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {["Peraturan Terbaru", "Input Terbaru"].map((title, idx) => (
             <div key={idx} className="w-full min-w-0">
-              <h2 className="text-xl font-extrabold mb-6">{title}</h2>
+              <h2 className="text-xl font-extrabold mb-6">
+                {title}
+              </h2>
 
               <div className="space-y-4">
                 {Array(3)
@@ -149,7 +160,7 @@ const Unduhan = () => {
             <img
               src="/logos/logo_delta.png"
               alt="logo"
-              className="rounded-2xl w-80 object-cover shadow-[0_4px_20px_rgba(0,0,0,0.08)]"
+              className="w-80 object-contain"
             />
           </div>
 
@@ -187,7 +198,9 @@ const Unduhan = () => {
       </section>
 
       {/* VIDEO */}
-      <section className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 mb-20 p-6 md:p-10 lg:p-14`}>
+      <section
+        className={`${sectionClass} mt-10 md:mt-14 lg:mt-16 p-6 md:p-10 lg:p-14`}
+      >
         <h2 className="text-2xl font-extrabold text-center mb-8">
           VIDEO TUTORIAL
         </h2>
