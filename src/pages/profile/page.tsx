@@ -229,12 +229,12 @@ const Profile = () => {
       </div>
 
       {/* ===== MEMBER GRID ===== */}
-      <div className="w-11/12 max-w-7xl pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+      <div className="w-11/12 max-w-[1600px] pb-20">
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 gap-6 space-y-6">
           {members.map((m, i) => (
             <div
               key={i}
-              className="transition-all duration-300 hover:-translate-y-2"
+              className="mb-6 break-inside-avoid"
             >
               <MemberCard {...m} />
             </div>
