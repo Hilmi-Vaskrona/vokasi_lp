@@ -477,11 +477,11 @@ const Profile = () => {
 
       {/* ===== MEMBER GRID ===== */}
       <div className="w-11/12 max-w-[1600px] pb-20">
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5 gap-6 space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 items-start">
           {members.map((m, i) => (
             <div
               key={i}
-              className="mb-6 break-inside-avoid"
+              className="flex w-full h-full"
             >
               <MemberCard {...m} />
             </div>
