@@ -100,8 +100,8 @@ function App () {
           } px-4 md:px-6 py-4`}
         >
           <div className='flex items-center gap-2'>
-            <img src='/assets/delta.png' alt='Delta Logo' className='w-10 h-10 md:w-12 md:h-12 object-contain' />
-            <span className='text-xl md:text-2xl font-bold text-gray-900'>Delta</span>
+            <img src='/assets/logo_delta.png' alt='Yayasan Delta Cendekia Mulia Logo' className='w-10 h-10 md:w-12 md:h-12 object-contain' />
+            <span className='text-xl md:text-2xl font-bold text-gray-900'>Yayasan Delta</span>
           </div>
 
           <div className='flex items-center justify-end relative'>

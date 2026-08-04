@@ -96,9 +96,8 @@ const HeroLayout = () => {
             </span>
           </motion.div>
 
-          {/* Heading */}
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
-            Delta <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Team</span>
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-6xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
+            Yayasan Delta <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Cendekia Mulia</span>
           </motion.h1>
 
           {/* Description */}
@@ -150,8 +149,8 @@ const HeroLayout = () => {
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-50 to-purple-50 rounded-full opacity-50" />
             
             <img 
-              src="/assets/delta.png" 
-              alt="Delta Team Logo" 
+              src="/assets/logo_delta.png" 
+              alt="Yayasan Delta Cendekia Mulia Logo" 
               className="w-full h-full object-contain relative z-10 drop-shadow-md" 
             />
             
