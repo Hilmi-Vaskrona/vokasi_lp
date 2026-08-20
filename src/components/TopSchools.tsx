@@ -36,12 +36,14 @@ export default function TopSchools() {
             <span className="text-xs font-bold text-gray-400 tracking-wider mb-2">
               {ordinal[i]}
             </span>
-            <img
-              src={school.logo}
-              alt={school.name}
-              className="w-16 h-16 object-contain mb-3 group-hover:scale-110 transition-transform duration-300"
-              loading="lazy"
-            />
+            <div className="w-20 h-20 bg-white rounded-xl border border-gray-100 shadow-md flex items-center justify-center p-2 mb-3 shrink-0">
+              <img
+                src={school.logo}
+                alt={school.name}
+                className="w-full h-full object-contain transition-transform group-hover:scale-110 duration-300"
+                loading="lazy"
+              />
+            </div>
             <p className="text-sm font-medium text-gray-700 text-center leading-tight line-clamp-2">
               {school.name}
             </p>

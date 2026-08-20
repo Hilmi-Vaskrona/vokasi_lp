@@ -158,7 +158,7 @@ const Unduhan = () => {
           {/* Gambar kiri */}
           <div className="flex justify-center items-center">
             <img
-              src="/assets/logo_delta.png"
+              src="/assets/logo_delta2.png"
               alt="logo"
               className="w-80 object-contain"
             />

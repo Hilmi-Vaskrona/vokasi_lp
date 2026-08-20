@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 mb-5">
               <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center shadow-sm">
                 <img
-                  src="/assets/logo_delta.png"
+                  src="/assets/logo_delta2.png"
                   alt="logo"
                   className="w-9 h-9 object-contain"
                 />
@@ -23,7 +23,7 @@ export default function Footer() {
 
               <div>
                 <h2 className="text-xl font-extrabold text-[#0F172A] leading-tight">
-                  Yayasan Delta<br />Cendekia Mulia
+                  Yayasan Delta Cendekia Mulia
                 </h2>
 
                 <p className="text-sm text-blue-600 font-medium">

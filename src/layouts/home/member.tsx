@@ -54,8 +54,8 @@ export default function MemberDelta() {
                 <img
                   src={s.logo}
                   alt={s.name}
-                  className='h-16 w-16 object-contain mb-2 drop-shadow-md transition-transform group-hover:scale-110'
-                  loading='lazy'
+                  className="h-16 w-16 object-cover mb-2 drop-shadow-md transition-transform group-hover:scale-110"
+                  loading="lazy"
                 />
                 <p className='text-sm font-medium text-gray-700 whitespace-nowrap group-hover:text-blue-600 transition-colors'>
                   {s.name}
