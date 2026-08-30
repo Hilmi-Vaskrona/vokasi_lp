@@ -7,6 +7,9 @@ interface Member {
   location?: string;
   categories?: string[];
   url?: string;
+  logoSize?: "sm" | "md";
+  logoFill?: boolean;   // true = logo fills the frame (for logos that appear too small)
+  logoScale?: number;  // custom zoom scale, only used when logoFill=true (default: 1.35)
 }
 
 const MemberCard: React.FC<Member> = ({
@@ -16,12 +19,24 @@ const MemberCard: React.FC<Member> = ({
   location,
   categories = [],
   url = "#",
+  logoSize = "md",
+  logoFill = false,
+  logoScale = 1.35,
 }) => {
   const [expanded, setExpanded] = useState(false);
 
   const visibleCategories = expanded
     ? categories
     : categories.slice(0, 3);
+
+  // Frame (circle) selalu fixed size.
+  // logoFill=false (default): img punya ukuran sendiri, centered di frame.
+  // logoFill=true: img mengisi penuh frame (Set to Frame) dengan padding kecil.
+  const logoSizeMap = {
+    sm: { circle: "w-16 h-16", img: "w-12 h-12" },
+    md: { circle: "w-20 h-20", img: "w-16 h-16" },
+  };
+  const logoClass = logoSizeMap[logoSize];
 
   return (
     <a
@@ -51,11 +66,19 @@ const MemberCard: React.FC<Member> = ({
 
           {/* LOGO */}
           <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-            <div className="bg-white rounded-full shadow-xl w-20 h-20 flex items-center justify-center ring-4 ring-white">
+            <div
+              className={`bg-white rounded-full shadow-xl ${logoClass.circle} ring-4 ring-white overflow-hidden ${
+                logoFill ? '' : 'flex items-center justify-center'
+              }`}
+            >
               <img
                 src={logo}
                 alt={`${name} logo`}
-                className="w-16 h-16 object-contain"
+                className={logoFill
+                  ? 'w-full h-full object-contain'
+                  : `${logoClass.img} object-contain`
+                }
+                style={logoFill ? { transform: `scale(${logoScale})` } : undefined}
               />
             </div>
           </div>
