@@ -14,7 +14,7 @@ const Profile = () => {
     },
     {
       name: "SMK YMA",
-      image: "",
+      image: "https://background-sekolah-delta.vercel.app/backgrounds/Gedung%20Kampus%201%20SMK%20YMA.webp",
       logo: "https://logo-sekolah-delta.vercel.app/logos/smk-yma.png",
       location:
         "Jl. Raya Puncak Km. 75 No. 81, Cipayung, Kec. Megamendung, Kab. Bogor, Jawa Barat",

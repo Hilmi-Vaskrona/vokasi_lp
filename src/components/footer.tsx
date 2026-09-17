@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   return (
     <footer className="w-full bg-white border-t border-blue-600/10 relative overflow-hidden">
@@ -27,15 +29,13 @@ export default function Footer() {
                 </h2>
 
                 <p className="text-sm text-blue-600 font-medium">
-                  Smart Digital Platform
+                  Komunitas Vokasi SMK Kabupaten Bogor
                 </p>
               </div>
             </div>
 
-            <p className="text-gray-600 leading-relaxed max-w-md">
-              Streamline your business’s financial management with our
-              intuitive, scalable SaaS platform designed to help your business
-              grow faster and smarter.
+            <p className="text-gray-600 leading-relaxed max-w-md text-sm">
+              Wadah kolaboratif komunitas Kepala Sekolah Menengah Kejuruan (SMK) di Kabupaten Bogor untuk memajukan mutu pendidikan kejuruan yang terarah, inovatif, dan berstandar industri global.
             </p>
 
             {/* SOCIAL */}
@@ -84,18 +84,18 @@ export default function Footer() {
 
             <ul className="space-y-3">
               {[
-                ["Home", "/"],
-                ["Profile", "/profile"],
-                ["Blog", "/blog"],
-                ["Berita", "/berita"],
+                ["Beranda", "/"],
+                ["Profile Sekolah", "/profile"],
+                ["Pelatihan Vokasi", "/pelatihan"],
+                ["Lowongan Kerja", "/lowongan"],
               ].map(([name, link], i) => (
                 <li key={i}>
-                  <a
-                    href={link}
-                    className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  <Link
+                    to={link}
+                    className="text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm"
                   >
                     {name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -104,22 +104,24 @@ export default function Footer() {
           {/* MENU 2 */}
           <div>
             <h3 className="text-lg font-bold text-[#0F172A] mb-5">
-              Informasi
+              Informasi & Media
             </h3>
 
             <ul className="space-y-3">
               {[
-                ["Unduhan", "/unduhan"],
-                ["Gallery", "/gallery"],
-                ["Contact", "/contact"],
+                ["Blog & Artikel", "/blog"],
+                ["Berita Terkini", "/berita"],
+                ["Unduhan Regulasi", "/unduhan"],
+                ["Galeri Kegiatan", "/gallery"],
+                ["Hubungi Kami", "/contact"],
               ].map(([name, link], i) => (
                 <li key={i}>
-                  <a
-                    href={link}
-                    className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  <Link
+                    to={link}
+                    className="text-gray-600 hover:text-blue-600 transition-colors duration-200 text-sm"
                   >
                     {name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
