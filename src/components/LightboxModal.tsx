@@ -31,7 +31,7 @@ const LightboxModal = ({ image, onClose }: LightboxModalProps) => {
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity"
       onClick={onClose}
     >
-      <div 
+      <div
         className="relative flex items-center justify-center p-4 w-full h-full"
         onClick={(e) => e.stopPropagation()}
       >
@@ -42,7 +42,7 @@ const LightboxModal = ({ image, onClose }: LightboxModalProps) => {
         >
           <X className="w-6 h-6 md:w-8 md:h-8" />
         </button>
-        
+
         <img
           src={image}
           alt="Preview"

@@ -1,0 +1,328 @@
+"use client";
+
+import React, { useState } from "react";
+import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+// ---------------------------------------------------------------------------
+// Data
+// ---------------------------------------------------------------------------
+
+interface GalleryItem {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+}
+
+const galleryItems: GalleryItem[] = [
+  {
+    id: 1,
+    title: "Project Cygnus",
+    category: "Architecture",
+    image:
+      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80",
+  },
+  {
+    id: 2,
+    title: "Project Orion",
+    category: "Design",
+    image:
+      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+  },
+  {
+    id: 3,
+    title: "Project Lyra",
+    category: "Nature",
+    image:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+  },
+  {
+    id: 4,
+    title: "Project Draco",
+    category: "Art",
+    image:
+      "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&q=80",
+  },
+  {
+    id: 5,
+    title: "Project Vela",
+    category: "Architecture",
+    image:
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80",
+  },
+  {
+    id: 6,
+    title: "Project Pavo",
+    category: "Design",
+    image:
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Filter bar
+// ---------------------------------------------------------------------------
+
+interface GalleryFilterProps {
+  filter: string;
+  onChange: (category: string) => void;
+}
+
+function GalleryFilter({ filter, onChange }: GalleryFilterProps) {
+  const categories = ["All", ...new Set(galleryItems.map((img) => img.category))];
+
+  return (
+    <div
+      className="relative z-10 mb-12 flex flex-wrap justify-center gap-2"
+      role="group"
+      aria-label="Gallery categories"
+    >
+      {categories.map((category) => (
+        <Button
+          key={category}
+          variant={filter === category ? "default" : "outline"}
+          size="sm"
+          onClick={() => onChange(category)}
+          aria-pressed={filter === category}
+        >
+          {category}
+        </Button>
+      ))}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Generative art canvas (renders on hover)
+// ---------------------------------------------------------------------------
+
+function GenerativeArtCanvas({ isHovered }: { isHovered: boolean }) {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let lines: Line[] = [];
+    const numLines = 30;
+
+    class Line {
+      x: number;
+      y: number;
+      speed: number;
+      angle: number;
+      length: number;
+
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.speed = Math.random() * 0.5 + 0.1;
+        this.angle = Math.random() * Math.PI * 2;
+        this.length = Math.random() * 20 + 5;
+      }
+      update() {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        if (
+          this.x < 0 ||
+          this.x > canvas.width ||
+          this.y < 0 ||
+          this.y > canvas.height
+        ) {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+        }
+      }
+      draw() {
+        ctx!.beginPath();
+        ctx!.moveTo(this.x, this.y);
+        ctx!.lineTo(
+          this.x - Math.cos(this.angle) * this.length,
+          this.y - Math.sin(this.angle) * this.length
+        );
+        ctx!.strokeStyle = `rgba(168, 85, 247, ${Math.random() * 0.3 + 0.1})`;
+        ctx!.lineWidth = 1;
+        ctx!.stroke();
+      }
+    }
+
+    const init = () => {
+      lines = [];
+      for (let i = 0; i < numLines; i++) {
+        lines.push(new Line());
+      }
+    };
+
+    const animate = () => {
+      if (isHovered) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        lines.forEach((line) => {
+          line.update();
+          line.draw();
+        });
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    canvas.width = 400;
+    canvas.height = 400;
+    init();
+    animate();
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isHovered]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 h-full w-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+    />
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Gallery card — 3D tilt + reveal on hover
+// ---------------------------------------------------------------------------
+
+function GalleryCard({ item, index }: { item: GalleryItem; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring" as const, bounce: 0.4, duration: 0.8, delay: index * 0.06 },
+    },
+    exit: { y: -20, opacity: 0, transition: { duration: 0.3 } },
+  };
+
+  return (
+    <motion.div
+      layout
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      className="group relative h-80 w-full rounded-xl border border-slate-800 bg-slate-900"
+    >
+      <div
+        style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }}
+        className="absolute inset-4 flex flex-col justify-end overflow-hidden rounded-lg p-6"
+      >
+        <img
+          src={item.image}
+          alt={item.title}
+          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+          onError={(e) => {
+            (e.target as HTMLImageElement).onerror = null;
+            (e.target as HTMLImageElement).src =
+              "https://cdn.21st.dev/assets/mirror/6a/6a6e4ed1abce146a2e0fe926cd28a8546c7f433494fce63e253adc752a00c7af.svg";
+          }}
+        />
+        <GenerativeArtCanvas isHovered={isHovered} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+        <div className="relative z-10">
+          <motion.h3
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="mb-1 text-xl font-bold text-white"
+          >
+            {item.title}
+          </motion.h3>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.05 }}
+            className="text-sm text-slate-400"
+          >
+            {item.category}
+          </motion.p>
+        </div>
+        <div className="absolute right-4 top-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <ArrowUpRight />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main component
+// ---------------------------------------------------------------------------
+
+export default function GenerativeArtGallery() {
+  const [filter, setFilter] = useState<string>("All");
+
+  const filteredImages =
+    filter === "All"
+      ? galleryItems
+      : galleryItems.filter((img) => img.category === filter);
+
+  return (
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black p-8 md:p-16">
+      <div className="relative z-10 mb-8 flex flex-col items-center text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
+          className="mb-4 text-5xl font-bold tracking-tighter text-white md:text-6xl"
+        >
+          Our Creations
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
+          className="max-w-2xl text-lg text-slate-400"
+        >
+          A curated selection of our finest work, where innovation meets elegant design.
+        </motion.p>
+      </div>
+
+      <GalleryFilter filter={filter} onChange={setFilter} />
+
+      <div className="relative z-10 grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <AnimatePresence mode="popLayout">
+          {filteredImages.map((item, index) => (
+            <GalleryCard key={item.id} item={item} index={index} />
+          ))}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}

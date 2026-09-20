@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react"
+import { Button } from "@/components/ui/button"
 import GalleryGrid from "@/components/GalleryGrid"
 import LightboxModal from "@/components/LightboxModal"
 
@@ -116,24 +116,33 @@ const GalleryPage = () => {
           </p>
         </div>
 
-        {/* Category Tabs */}
+        {/* Category Tabs using shadcn Button */}
         <div
           className="flex overflow-x-auto pb-4 mb-8 md:mb-12 justify-start md:justify-center gap-3 sm:gap-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           data-aos="fade-up"
           data-aos-delay="200"
+          role="group"
+          aria-label="Kategori Galeri"
         >
-          {categories.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => setActiveCategory(cat.key)}
-              className={`whitespace-nowrap px-6 py-2.5 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ease-out border ${activeCategory === cat.key
-                  ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/30 border-transparent transform scale-105"
-                  : "bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border-slate-200 hover:shadow-md"
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.key
+            return (
+              <Button
+                key={cat.key}
+                variant={isActive ? "default" : "outline"}
+                size="default"
+                onClick={() => setActiveCategory(cat.key)}
+                className={`whitespace-nowrap px-6 py-2.5 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ease-out border ${
+                  isActive
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/30 border-transparent transform scale-105 hover:from-blue-700 hover:to-indigo-700"
+                    : "bg-white text-slate-600 hover:bg-slate-100 hover:text-slate-900 border-slate-200 hover:shadow-md"
                 }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+                aria-pressed={isActive}
+              >
+                {cat.label}
+              </Button>
+            )
+          })}
         </div>
 
         {/* Grid Gallery */}
