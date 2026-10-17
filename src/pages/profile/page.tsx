@@ -5,7 +5,7 @@ const Profile = () => {
     {
       name: "SMK Madinatul Quran",
       image:
-        "https://smkmadinatulquran.sch.id/wp-content/uploads/2025/11/01.jpg",
+        "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qu2Ykcth3nYowqLYEMI1dAB0qjL2ooViPjvgFswUT1nOQeekOyNsqPaU93pk63Zv8qJc2sqYxFHSU6MAOtFFkzyHjmKaWqQdzMX-Igsy4w0GfGdU3_Gyduu3ceNpxcPS2qzl2doG0ta68Y=s1360-w1360-h1020-rw",
       logo: "https://smkmadinatulquran.sch.id/wp-content/uploads/2021/04/logo-SMK-MQ.png",
       location:
         "Kp.Kebon Kelapa, RT.02/RW.011, Singasari, Kec. Jonggol, Kabupaten Bogor, Jawa Barat 16830",

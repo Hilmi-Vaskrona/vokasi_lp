@@ -59,13 +59,13 @@ export default function PelatihanPage() {
   const getCategoryBadge = (cat: PelatihanItem['category']) => {
     switch (cat) {
       case 'kepala-sekolah':
-        return { label: 'Kepala Sekolah', bg: 'bg-amber-50 text-amber-700 border-amber-200' }
+        return { label: 'Kepala Sekolah' }
       case 'guru':
-        return { label: 'Guru & Pendidik', bg: 'bg-blue-50 text-blue-700 border-blue-200' }
+        return { label: 'Guru & Pendidik' }
       case 'tendik':
-        return { label: 'Tenaga Kependidikan', bg: 'bg-emerald-50 text-emerald-700 border-emerald-200' }
+        return { label: 'Tenaga Kependidikan' }
       case 'murid':
-        return { label: 'Murid & Siswa', bg: 'bg-purple-50 text-purple-700 border-purple-200' }
+        return { label: 'Murid & Siswa' }
     }
   }
 
@@ -93,7 +93,7 @@ export default function PelatihanPage() {
               data-aos="fade-down"
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-blue-200 text-xs md:text-sm font-semibold mb-6 uppercase tracking-wider"
             >
-              <Sparkles size={16} className="text-yellow-300 animate-spin" style={{ animationDuration: '6s' }} />
+              <GraduationCap size={18} className="text-yellow-300" />
               Pusat Pengembangan SDM Vokasi Unggul
             </div>
 
@@ -260,12 +260,12 @@ export default function PelatihanPage() {
                   {/* Card Header Badges */}
                   <div className="p-6 pb-4 flex items-center justify-between gap-2">
                     <span
-                      className={`text-[11px] font-bold px-3 py-1 rounded-full border tracking-wide uppercase ${catBadge.bg}`}
+                      className="inline-flex items-center px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-[11px] font-medium uppercase tracking-wider text-slate-50 shadow-sm"
                     >
                       {catBadge.label}
                     </span>
 
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-white border border-slate-200 text-[11px] font-semibold uppercase tracking-wider text-slate-600">
                       {item.format}
                     </span>
                   </div>

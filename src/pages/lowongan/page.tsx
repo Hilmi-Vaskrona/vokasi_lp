@@ -257,13 +257,13 @@ export default function LowonganPage() {
 
                   {/* Pills / Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                    <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-50 text-slate-600 border border-slate-200">
                       {job.category}
                     </span>
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+                    <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-50 text-slate-600 border border-slate-200">
                       {job.type}
                     </span>
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
+                    <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-50 text-slate-600 border border-slate-200">
                       {job.experienceLevel}
                     </span>
                   </div>
@@ -332,13 +332,13 @@ export default function LowonganPage() {
                 </h2>
 
                 <div className="flex flex-wrap gap-2 text-xs">
-                  <span className="px-2.5 py-1 rounded-full bg-white/15 text-white font-medium">
+                  <span className="px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 font-medium">
                     {selectedJob.type}
                   </span>
-                  <span className="px-2.5 py-1 rounded-full bg-blue-500/30 text-blue-200 font-medium border border-blue-400/20">
+                  <span className="px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 font-medium">
                     {selectedJob.category}
                   </span>
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/30 text-emerald-200 font-medium">
+                  <span className="px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 font-medium">
                     Batas: {selectedJob.deadline}
                   </span>
                 </div>

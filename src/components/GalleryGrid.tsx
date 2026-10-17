@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from "framer-motion"
-import { ArrowUpRight, Tag, ZoomIn } from "lucide-react"
+import { ArrowUpRight, ZoomIn } from "lucide-react"
 import { GenerativeArtCanvas } from "@/components/ui/generative-art-canvas"
 
 export interface ImageObject {
@@ -15,19 +15,6 @@ export interface ImageObject {
 interface GalleryGridProps {
   images: ImageObject[]
   onSelect: (src: string, imageObj?: ImageObject) => void
-}
-
-const getCategoryBadgeClass = (category: string) => {
-  switch (category.toLowerCase()) {
-    case "acara":
-      return "bg-amber-500/90 text-white border-amber-300/40"
-    case "kegiatan":
-      return "bg-blue-600/90 text-white border-blue-400/40"
-    case "ekstrakurikuler":
-      return "bg-emerald-600/90 text-white border-emerald-400/40"
-    default:
-      return "bg-slate-800/90 text-white border-slate-600/40"
-  }
 }
 
 const getGenerativeColor = (category: string) => {
@@ -104,7 +91,6 @@ const GalleryCard = ({
     exit: { y: -20, opacity: 0, transition: { duration: 0.25 } }
   }
 
-  const badgeClass = getCategoryBadgeClass(image.category)
   const canvasColor = getGenerativeColor(image.category)
 
   return (
@@ -151,10 +137,7 @@ const GalleryCard = ({
 
         {/* Top-Left Category Badge */}
         <div className="absolute left-5 top-5 z-20">
-          <span
-            className={`inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md backdrop-blur-md border ${badgeClass}`}
-          >
-            <Tag size={12} className="opacity-90" />
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/45 border border-white/15 text-[11px] font-medium uppercase tracking-wider text-white/90">
             {image.category}
           </span>
         </div>

@@ -41,6 +41,7 @@ export default function MemberDelta() {
             key={i}
             speed={40 + i * 5}
             gradient
+            autoFill
             direction={i % 2 === 0 ? 'left' : 'right'}
             pauseOnHover
           >
