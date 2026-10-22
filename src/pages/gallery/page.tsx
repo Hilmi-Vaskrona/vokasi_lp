@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import GalleryGrid from "@/components/GalleryGrid"
 import LightboxModal from "@/components/LightboxModal"
+import { deltaPhotos } from "@/data/deltaPhotos"
 
 import AOS from "aos"
 import "aos/dist/aos.css"
@@ -20,76 +21,10 @@ const GalleryPage = () => {
 
   const categories = [
     { key: "semua", label: "Semua" },
-    { key: "kegiatan", label: "Kegiatan" },
-    { key: "acara", label: "Acara" },
-    { key: "ekstrakurikuler", label: "Ekstrakurikuler" },
+    { key: "delta", label: "Delta Team" },
   ]
 
-  const allImages = [
-    {
-      src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
-      category: "acara",
-      title: "Wisuda Angkatan",
-      description:
-        "Momen kelulusan yang penuh dengan suka cita dan kebanggaan.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop",
-      category: "acara",
-      title: "Seminar Nasional",
-      description:
-        "Membahas perkembangan teknologi masa depan bersama pakar.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1511629091441-ee46146481b6?q=80&w=800&auto=format&fit=crop",
-      category: "kegiatan",
-      title: "Diskusi Kelompok",
-      description:
-        "Mahasiswa berdiskusi memecahkan studi kasus di ruang kelas.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop",
-      category: "kegiatan",
-      title: "Tur Kampus",
-      description:
-        "Mengenal lebih dekat fasilitas dan lingkungan hijau kampus.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200&auto=format&fit=crop",
-      category: "kegiatan",
-      title: "Belajar Mandiri",
-      description:
-        "Sesi belajar mandiri mahasiswa di lingkungan belajar yang nyaman.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop",
-      category: "ekstrakurikuler",
-      title: "Paduan Suara",
-      description:
-        "Persiapan intensif untuk kompetisi paduan suara tingkat nasional.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop",
-      category: "ekstrakurikuler",
-      title: "Rapat Organisasi",
-      description:
-        "Rapat rutin pengurus BEM untuk merencanakan kegiatan sosial.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop",
-      category: "kegiatan",
-      title: "Kuliah Umum",
-      description:
-        "Pemaparan materi berharga oleh dosen tamu dari industri.",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1564069114553-7215e1ff1890?q=80&w=800&auto=format&fit=crop",
-      category: "acara",
-      title: "Pameran Inovasi",
-      description:
-        "Menampilkan karya dan proyek akhir terbaik mahasiswa.",
-    },
-  ]
+  const allImages = deltaPhotos
 
   const images = activeCategory === "semua"
     ? allImages

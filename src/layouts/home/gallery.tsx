@@ -1,19 +1,8 @@
 import GalleryMasonry from "@/components/GalleryMasonry";
+import { deltaPhotos } from "@/data/deltaPhotos";
 
 function GalleryPage() {
-  const images = [
-    "https://i.pinimg.com/736x/06/33/32/06333263632d204c46459f94f7e3a6e6.jpg",
-    "https://i.pinimg.com/736x/24/f1/60/24f160011da7d0ae2a709ce16e24b82e.jpg",
-    "https://i.pinimg.com/736x/0e/54/3d/0e543dfe106b4bd5a01cd6f82e25cdef.jpg",
-    "https://i.pinimg.com/736x/10/7a/8d/107a8df6653e65f838e83493c7be9135.jpg",
-    "https://i.pinimg.com/736x/f3/75/0f/f3750f16f4589c92c1010739530972bf.jpg",
-    "https://i.pinimg.com/736x/98/37/a5/9837a5b0b3d575ec376fac57fcd61cf1.jpg",
-    "https://i.pinimg.com/736x/b6/20/24/b62024296b0bc87e05fd60cf1ba48b04.jpg",
-    "https://i.pinimg.com/736x/71/77/98/7177985535ec83dc423241345facaaee.jpg",
-    "https://i.pinimg.com/736x/b9/62/96/b9629642252c2f6c4a821b285bb0cb72.jpg",
-    "https://i.pinimg.com/736x/4b/ac/96/4bac963590fe5b60b72dc3e73d58c1ba.jpg",
-    "https://i.pinimg.com/736x/15/1c/e8/151ce8d3a77dc95be763335f4b30d7a9.jpg",
-  ];
+  const images = deltaPhotos.map((item) => item.src);
 
   return (
     <div className="relative min-h-screen py-4 flex mt-12 bg-[#f7f7f7] flex-col items-center gap-12">

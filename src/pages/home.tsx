@@ -1,34 +1,27 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 // import AboutSection from '@/layouts/home/about'
 // import AboutPage2 from '@/layouts/home/about2'
 // import CobaGSAP from '@/layouts/home/cobagsap'
-import AboutPage from "@/components/about"; "@/components/about";
+import AboutPage from "@/components/about";
 import HeroLayout from "@/layouts/home/hero";
-// import TwoColFourRowScrollPublic from "@/components/about";
-// import HeroLayout from "@/layouts/home/hero";
-// import TwoColFourRowScrollPublic from '@/layouts/home/about'
-import GalleryPage from '@/layouts/home/gallery'
-// import HeroLayout from '@/layouts/home/hero'
-import MemberDelta from '@/layouts/home/member'
-// import TestimonialsSection from '@/layouts/home/testimoni'
+import MengenalDelta from "@/layouts/home/mengenalDelta";
+import MemberDelta from "@/layouts/home/member";
+import PengalamanSection from "@/layouts/home/pengalaman";
+import GalleryPage from "@/layouts/home/gallery";
 
 const HomePage = () => {
   return (
-    <main
-      className="w-full min-h-screen bg-[#F7F7F7]"
-      // className='w-full min-h-screen bg-[#fcfaf4]'
-    >
+    <main className="w-full min-h-screen bg-[#F7F7F7]">
       <HeroLayout />
 
       <AboutPage />
 
-      {/* <TwoColFourRowScrollPublic /> */}
-      {/* <TwoColFourRowScrollPublic /> */}
-      {/* <CobaGSAP /> */}
-      {/* <TestimonialsSection /> */}
-      <MemberDelta/>
-      <GalleryPage/>
-      <section></section>
+      <MengenalDelta />
+
+      <MemberDelta />
+
+      <PengalamanSection />
+
+      <GalleryPage />
     </main>
   );
 };

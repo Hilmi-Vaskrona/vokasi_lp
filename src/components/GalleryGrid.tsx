@@ -25,6 +25,8 @@ const getGenerativeColor = (category: string) => {
       return "rgba(59, 130, 246, 0.45)" // Blue
     case "ekstrakurikuler":
       return "rgba(16, 185, 129, 0.45)" // Emerald
+    case "delta":
+      return "rgba(37, 99, 235, 0.55)" // Delta Blue
     default:
       return "rgba(99, 102, 241, 0.45)" // Indigo
   }
@@ -124,6 +126,11 @@ const GalleryCard = ({
           alt={image.title}
           loading="lazy"
           onLoad={() => setIsLoaded(true)}
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src =
+              "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+            setIsLoaded(true)
+          }}
           className={`absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
