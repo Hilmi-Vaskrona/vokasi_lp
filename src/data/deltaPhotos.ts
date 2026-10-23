@@ -13,6 +13,12 @@ export const deltaPhotos: DeltaPhoto[] = [
     description: "Sesi pemaparan materi dan pengenalan visi strategis program Delta Team bersama para mitra SMK.",
   },
   {
+    src: "/delta/IMG_2023.webp",
+    category: "delta",
+    title: "Antusiasme Peserta Kegiatan Vokasi",
+    description: "Partisipasi aktif para peserta dalam mendalami materi serta sesi tanya jawab seputar pengembangan kejuruan.",
+  },
+  {
     src: "/delta/IMG_2026.webp",
     category: "delta",
     title: "Sinergi Komunitas Vokasi SMK",
@@ -53,6 +59,12 @@ export const deltaPhotos: DeltaPhoto[] = [
     category: "delta",
     title: "Pertemuan Strategis Pendidikan Vokasi",
     description: "Pertukaran gagasan serta praktik baik (best practices) antar institusi pendidikan vokasi Kabupaten Bogor.",
+  },
+  {
+    src: "/delta/IMG_2096.webp",
+    category: "delta",
+    title: "Diskusi Jejaring Kemitraan SMK",
+    description: "Momen dialog konstruktif dalam mempererat tali silaturahmi dan kemitraan antar pimpinan sekolah kejuruan.",
   },
   {
     src: "/delta/IMG_2132.webp",
